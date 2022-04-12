@@ -1,31 +1,27 @@
 import React from 'react'
-import { Text, TouchableOpacity, TouchableHighlight, View } from 'react-native'
+import { Switch, View, Text, StatusBar } from 'react-native'
+
 
 export default class App extends React.Component {
-
+  constructor(props) {
+    super(props)
+    this.state = {
+      isEnabled: false
+    }
+  }
+    
 render() {
+
+  const {isEnabled} = this.state
+
   return(
-  <View style={{padding: 16}}>
-    <TouchableOpacity
-      // onPress={_=> alert('Pressionado')}
-      activeOpacity={0.3}>
-      <Text style={{ fontSize: 30}}>
-        Um texto Clicável
-      </Text>
-      <Text>
-         Outro texto
-      </Text> 
-    </TouchableOpacity>
-
-    <TouchableHighlight
-      activeOpacity={0.3}
-      underlayColor='green'>
-      <Text style={{ fontSize: 30}}>
-        Testando TouchableHighlight
-      </Text> 
-    </TouchableHighlight>
-
-
+  <View style={{padding: 16, flexDirection: 'row'}}>
+    <Text style={{fontSize: 18}}>Ativar Opção</Text>
+    <Switch
+      value={isEnabled}
+      onValueChange={_ => this.setState({isEnabled: !isEnabled})}
+    />
+    <StatusBar />
   </View>
   )
 }
