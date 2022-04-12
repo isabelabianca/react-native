@@ -20,6 +20,8 @@ render() {
     <Switch
       value={isEnabled}
       onValueChange={_ => this.setState({isEnabled: !isEnabled})}
+      thumbColor="#fada"
+      trackColor={{false:'purple', true:'lightblue'}}
     />
     <StatusBar />
   </View>
