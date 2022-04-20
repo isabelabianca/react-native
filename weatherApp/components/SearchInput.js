@@ -1,8 +1,9 @@
 import React from 'react'
 
 import { View, TextInput, StyleSheet } from 'react-native'
+import PropTypes from 'prop-types'
 
-export default class App extends React.Component {
+export default class SearchInput extends React.Component {
 
   state = {
     text: '',
@@ -46,5 +47,14 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     color: 'white'
-  }
-})
+  },
+});
+
+SearchInput.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  placeholder: PropTypes.string
+}
+
+SearchInput.defaultProps = {
+  placeholder: ''
+}
