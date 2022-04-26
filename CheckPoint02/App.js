@@ -27,7 +27,19 @@ export default class App extends React.Component {
   classificaTriangulo = () => {
     const { image, a, b, c, text } = this.state;
 
-    if (!a || !b || !c) return;
+    if (!a || !b || !c) {
+      this.setState({
+        text: 'Todos os campos devem ser preenchidos',
+        image: ''})
+      return;
+    }
+    if (a==0 || b==0 || c==0 ||
+        a > b+c || b> a+c || c>a+b) {
+          this.setState({
+            text: 'Não é um triângulo',
+            image:''})
+            return;
+        }
 
     if (a==b && a==c && b==c) {
       this.setState({
